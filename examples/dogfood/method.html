@@ -1,6 +1,0 @@
-<h4>How this trace was captured</h4>
-<p>The agent platform logs every model call (tokens, provider cost, duration) and every tool call (name, duration, error flag).
-That log was converted to OpenTelemetry spans with OpenInference attributes and loaded like any other trace.</p>
-<p>Before publishing, all content was stripped: no prompts, no outputs, no argument values, no tool results.
-What's left is tool names, argument keys, timing, result sizes, token counts and cost. The model vendor name is redacted too.</p>
-<p class="src">One run can't support a comparison. This tab shows the single-run scorecard: outcome, price, diagnostics, and where the time went.</p>

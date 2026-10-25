@@ -1,4 +1,0 @@
-One agent session, 14.7 minutes: 51 model calls, 54 tool calls, 7 tool errors. Provider-reported cost $4.51; 7.8M input tokens, most of them cached context.
-Verifier: the unit tests (16 at that point) pass, including the one that rebuilds the published Hermes ToolPerf table from raw traces. The trace ends at that point; the README and publishing came later and are not in it.
-All 7 errors are real. 2 were bugs the agent wrote and fixed on the next call (a type-name crash in the mock tools; the demo build crashing before the dogfood file existed). 5 were browser calls the sandbox doesn't support (file:// pages, setContent, setViewportSize, one session-API call) before it switched to a local web server.
-Scoring this trace caught a bug in tracecard: with argument values redacted, every call looked identical, so it reported false retry loops. Fixed in the same session, with a test.

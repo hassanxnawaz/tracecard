@@ -1,0 +1,23 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "tracecard"
+version = "0.1.0"
+description = "Agent traces in, a ship / change / rerun / stop decision out."
+readme = "README.md"
+license = {text = "MIT"}
+authors = [{name = "Hassan Nawaz"}]
+requires-python = ">=3.10"
+dependencies = []
+
+[project.scripts]
+tracecard = "tracecard.cli:main"
+
+[tool.setuptools]
+packages = ["tracecard", "harness"]
+
+[tool.setuptools.package-data]
+tracecard = ["templates/*.html"]
+harness = ["tasks.json"]

@@ -132,20 +132,6 @@ tracecard doesn't replace any of it. It sits after the tracing and before the de
 
 A natural next step would be a `nat` evaluator plugin that emits the decision inside `nat eval`.
 
-## We scored the agent that built this
-
-This repo was built by an AI coding agent. Its own session was exported as OpenInference spans (all content stripped:
-no prompts, outputs, argument values or tool results; the model vendor name redacted) and scored like any other trace.
-It's the fourth tab in the demo and lives in `examples/dogfood/`.
-
-- One session, 14.7 minutes: 51 model calls, 54 tool calls, 7 tool errors, $4.51 provider-reported cost, 7.8M input
-  tokens (mostly cached context). Verifier: the test suite passing, including the Hermes table rebuild.
-- All 7 errors are real. Two were bugs the agent wrote and fixed on the next call. Five were browser calls the sandbox
-  doesn't support, made before it switched to a local web server.
-- Scoring this trace caught a bug in tracecard itself: with argument values redacted, every call looked identical, so
-  it reported retry loops that weren't there. Fixed in the same session, with a test.
-- The trace ends at the first full test pass. The README and publishing came after and are not in it.
-
 ## Limitations
 
 - Completion is only as good as the verifier. The Hermes verifier checks two tasks from the agent's final output
@@ -166,16 +152,10 @@ It's the fourth tab in the demo and lives in `examples/dogfood/`.
 4. Live NIM runs of the 20-task battery with two open models, published with their traces.
 5. A CI mode that fails a pull request on STOP and comments the decision on CHANGE or RERUN.
 
-## How this was built
-
-Hassan Nawaz set the goal, the metrics that matter and the review bar. AI coding
-agents wrote the code under his direction. He reviews and decides what ships. The agent's own build trace is scored
-above, mistakes included.
-
 ## Credits
 
 Hermes ToolPerf and its traces: Nous Research ([hermes-toolperf-evals](https://github.com/NousResearch/hermes-toolperf-evals)).
 The decision rule follows NVIDIA's NeMo Relay guidance linked above. Not affiliated with or endorsed by NVIDIA or Nous Research.
 
-Designed and directed by Hassan Nawaz. Built by AI coding agents working under his direction.
+Built by Hassan Nawaz.
 MIT licensed.

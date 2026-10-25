@@ -1,8 +1,0 @@
-<h4>What the trace says about the agent</h4>
-<p>Most of the cost is context, not work: 51 model calls re-read a growing transcript, which is why input tokens dwarf output.
-Tool time totals about half a minute of the 14.7.</p>
-<p>The errors cluster in one place. Five of seven came from the agent guessing at browser APIs the sandbox doesn't expose.
-That's the "fix the tool layer, not the model" pattern from the Hermes case: one line in the tool description listing
-what's supported would have saved those calls.</p>
-<p>And the tool earned its keep on itself: the first score flagged retry loops that weren't there. Redacted traces need
-different rules, and now they have them.</p>
